@@ -1,0 +1,34 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+# Use a package of configuration called an orb.
+orbs:
+  node: circleci/node@4.7.0
+jobs:
+  example-mend-job:
+    docker:
+      # prebuilt image with java
+      - image: cimg/openjdk:16.0.2
+    steps:
+      # checkout git
+      - checkout
+      # install node/npm
+      - node/install
+      # npm install packages
+      - node/install-packages
+      # execute Mend scan, curling the latest unified agent. Remeber to set environmental variables (api key, url, project name and product name)
+      # WS_APIKEY
+      # WS_WSS_URL
+      # WS_PRODUCTNAME
+      # WS_PROJECTNAME
+      - run: 
+          name: Download Mend CLI
+          command: sudo curl "https://ws-cli.s3.amazonaws.com/44/linux_amd64/ws" -o "/usr/local/bin/ws" && sudo chmod +x "/usr/local/bin/ws"
+      - run: 
+          name: Authenticate and Run Mend CLI
+          command: |
+            ws auth login --user-key $USER_KEY --url https://saas.mend.io --email sam.quakenbush@whitesourcesoftware.com
+            ws scan
+workflows:
+  example-workflow:
+    jobs:
+      - example-mend-job
