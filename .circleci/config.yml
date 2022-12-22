@@ -3,6 +3,14 @@ version: 2.1
 # Use a package of configuration called an orb.
 orbs:
   node: circleci/node@4.7.0
+
+workflows:
+  mend-workflow:
+    jobs:
+      - example-mend-job:
+          context:
+            - Mend
+
 jobs:
   example-mend-job:
     docker:
@@ -15,11 +23,6 @@ jobs:
       - node/install
       # npm install packages
       - node/install-packages
-      # execute Mend scan, curling the latest unified agent. Remeber to set environmental variables (api key, url, project name and product name)
-      # WS_APIKEY
-      # WS_WSS_URL
-      # WS_PRODUCTNAME
-      # WS_PROJECTNAME
       - run: 
           name: Download Mend CLI
           command: sudo curl "https://ws-cli.s3.amazonaws.com/44/linux_amd64/ws" -o "/usr/local/bin/ws" && sudo chmod +x "/usr/local/bin/ws"
@@ -28,7 +31,3 @@ jobs:
           command: |
             ws auth login --user-key $USER_KEY --url https://saas.mend.io --email sam.quakenbush@whitesourcesoftware.com
             ws scan
-workflows:
-  example-workflow:
-    jobs:
-      - example-mend-job
