@@ -32,4 +32,4 @@ jobs:
             whoami
             mend version
             ls -al ~/
-            mend code
+            mend code -s SamQ-Demo//*//*
