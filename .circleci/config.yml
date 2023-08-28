@@ -30,6 +30,7 @@ jobs:
           name: Authenticate and Run Mend CLI
           command: |
             whoami
+            umask
             ls -al /home/circleci/
             echo "That was /home/circleci/"
             mend version
