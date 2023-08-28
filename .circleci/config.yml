@@ -32,5 +32,5 @@ jobs:
             whoami
             mend version
             ls -al ~/
-            chown -R 777 ~/.mend
+            sudo chown -R 777 ~/.mend
             mend code
