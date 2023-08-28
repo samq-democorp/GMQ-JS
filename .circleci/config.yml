@@ -30,5 +30,6 @@ jobs:
           name: Authenticate and Run Mend CLI
           command: |
             whoami
-            ls -al ~/.mend
+            ls -al ~/
+            chown -R ~/
             mend code
