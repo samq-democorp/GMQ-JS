@@ -34,8 +34,8 @@ jobs:
 # The Mend SCA CLI scan should be called AFTER a package manager build step such as "mvn clean install -DskipTests=true" or "npm install --only=prod"
     - name: Mend CLI Scan
       env:
-        MEND_EMAIL: ${{secrets.MEND_SCA_EMAIL}}
-        MEND_USER_KEY: ${{secrets.MEND_SCA_USERKEY}}
+        MEND_EMAIL: ${{secrets.MEND_EMAIL}}
+        MEND_USER_KEY: ${{secrets.MEND_USERKEY}}
         MEND_URL: https://saas.whitesourcesoftware.com
       run: |
         echo "Downloading Mend CLI"
