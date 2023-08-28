@@ -31,5 +31,10 @@ jobs:
           command: |
             whoami
             mend version
-            ls -al ~/
+            ls -al /home/circleci/
+            echo "That was /home/circleci/"
+            ls -al /home/circleci/.mend
+            echo "That was /home/circleci/.mend"
+            ls -al /home/circleci/.mend/storage/sast/engines
+            echo "That was /home/circleci/.mend/storage/sast/engines"
             mend code -s SamQ-Demo//*//*
