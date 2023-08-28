@@ -25,9 +25,8 @@ jobs:
       - node/install-packages
       - run: 
           name: Download Mend CLI
-          command: sudo curl "https://ws-cli.s3.amazonaws.com/44/linux_amd64/ws" -o "/usr/local/bin/ws" && sudo chmod +x "/usr/local/bin/ws"
+          command: sudo curl https://downloads.mend.io/cli/linux_amd64/mend -o /usr/local/bin/mend && sudo chmod +x /usr/local/bin/mend
       - run: 
           name: Authenticate and Run Mend CLI
           command: |
-            ws auth login --user-key $USER_KEY --url https://saas.mend.io --email sam.quakenbush@whitesourcesoftware.com
-            ws scan -u -s SamQDemoCorp-Prod//$CIRCLE_PROJECT_REPONAME//<<pipeline.git.branch>> --fail-policy
+            mend code
