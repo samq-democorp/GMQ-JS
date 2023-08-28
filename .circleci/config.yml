@@ -30,6 +30,8 @@ jobs:
           name: Authenticate and Run Mend CLI
           command: |
             whoami
+            echo $PATH
+            echo "That was the path"
             mend version
             ls -al ~/
             sudo chown -R 777 ~/.mend
