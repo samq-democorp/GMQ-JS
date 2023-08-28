@@ -25,7 +25,7 @@ jobs:
       - node/install-packages
       - run: 
           name: Download Mend CLI
-          command: curl https://downloads.mend.io/cli/linux_amd64/mend -o /usr/local/bin/mend && chmod +x /usr/local/bin/mend
+          command: sudo curl https://downloads.mend.io/cli/linux_amd64/mend -o /usr/local/bin/mend && sudo chmod +x /usr/local/bin/mend
       - run: 
           name: Authenticate and Run Mend CLI
           command: |
