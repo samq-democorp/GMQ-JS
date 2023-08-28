@@ -32,5 +32,5 @@ jobs:
             whoami
             mend version
             ls -al ~/
-            chown -R ~/
+            chown -R $USER:$USER ~/
             mend code
