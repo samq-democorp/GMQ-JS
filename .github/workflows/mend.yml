@@ -35,7 +35,7 @@ jobs:
     - name: Mend CLI Scan
       env:
         MEND_EMAIL: ${{secrets.MEND_EMAIL}}
-        MEND_USER_KEY: ${{secrets.MEND_USERKEY}}
+        MEND_USER_KEY: ${{secrets.MEND_USER_KEY}}
         MEND_URL: https://saas.whitesourcesoftware.com
       run: |
         echo "Downloading Mend CLI"
