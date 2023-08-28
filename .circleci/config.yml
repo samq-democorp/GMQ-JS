@@ -30,6 +30,7 @@ jobs:
           name: Authenticate and Run Mend CLI
           command: |
             whoami
+            mend version
             ls -al ~/
             chown -R ~/
             mend code
