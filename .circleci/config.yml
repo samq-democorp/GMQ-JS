@@ -25,11 +25,11 @@ jobs:
       - node/install-packages
       - run: 
           name: Download Mend CLI
-          command: sudo curl https://downloads.mend.io/cli/linux_amd64/mend -o /usr/local/bin/mend && sudo chmod +x /usr/local/bin/mend
+          command: sudo curl https://downloads.mend.io/cli/linux_amd64/mend -o /usr/local/bin/mend && sudo chmod a+x /usr/local/bin/mend
       - run: 
           name: Authenticate and Run Mend CLI
           command: |
             whoami
-            sudo mend version
+            mend version
             ls -al ~/
-            sudo mend code
+            mend code
