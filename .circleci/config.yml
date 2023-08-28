@@ -15,7 +15,7 @@ jobs:
   example-mend-job:
     docker:
       # prebuilt image with java
-      - image: circleci/openjdk:11-jdk-buster
+      - image: ubuntu:latest
     steps:
       # checkout git
       - checkout
