@@ -29,4 +29,5 @@ jobs:
       - run: 
           name: Authenticate and Run Mend CLI
           command: |
+            whoami
             mend code
