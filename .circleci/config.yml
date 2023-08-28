@@ -30,11 +30,11 @@ jobs:
           name: Authenticate and Run Mend CLI
           command: |
             whoami
-            mend version
             ls -al /home/circleci/
             echo "That was /home/circleci/"
+            mend version
             ls -al /home/circleci/.mend
             echo "That was /home/circleci/.mend"
-            ls -al /home/circleci/.mend/storage/sast/engines
-            echo "That was /home/circleci/.mend/storage/sast/engines"
             mend code -s SamQ-Demo//*//*
+          environment:
+            MEND_SAST_CACHE_PATH: /home/circleci/project
