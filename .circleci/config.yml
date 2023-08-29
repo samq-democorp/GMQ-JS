@@ -23,7 +23,7 @@ jobs:
       # install node/npm
       - node/install
       # npm install packages
-      # - node/install-packages
+      - node/install-packages
       - run: 
           name: Download Mend CLI
           command: sudo curl https://downloads.mend.io/cli/linux_amd64/mend -o /usr/local/bin/mend && sudo chmod +x /usr/local/bin/mend
